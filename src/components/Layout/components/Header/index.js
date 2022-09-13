@@ -9,7 +9,6 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faCloudUpload,
     faUser,
     faCoins,
     faGear,
@@ -25,6 +24,8 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -139,7 +140,9 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon width="3rem" height="3rem" />
+                                    <MessageIcon width="2.6rem" height="2.6rem" />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -152,7 +155,7 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img className={cx('user-avatar')} src="~/assets/images/avatar.jpeg" alt="Avt" />
+                            <Image className={cx('user-avatar')} src="~/assets/images/avatar.jpeg" alt="Avt" />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
